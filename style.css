@@ -1,0 +1,93 @@
+body {
+  width: 500px;
+  display: block;
+  margin: 20px auto;
+}
+.container {
+  background-image: url(https://images.unsplash.com/photo-1588382361282-b48215d66c03?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80);
+  border: 2px solid #000000;
+}
+h1 {
+  color: #000000;
+  margin-bottom: 50px;
+  padding-top: 20px;
+  font-weight: bold;
+  font-size: 40px;
+}
+h2,
+h3 {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  line-height: 1pt;
+  font-weight: bolder;
+}
+.current-temp {
+  font-size: 50px;
+  text-align: right;
+  font-weight: bolder;
+}
+.input-group {
+  max-width: 300px;
+  background: grey;
+}
+.fa-search {
+  color: white;
+}
+
+.main-border {
+  border: 2px solid;
+}
+.future1 {
+  background: #c8e5f7;
+  padding: 10px 10px;
+}
+.future2 {
+  background: #c8e5f7;
+  padding: 10px 10px;
+}
+.future3 {
+  background: #c8e5f7;
+  padding: 10px 10px;
+}
+.future4 {
+  background: #c8e5f7;
+  padding: 10px 10px;
+}
+.future5 {
+  background: #c8e5f7;
+  padding: 10px 10px;
+}
+.text-weather {
+  font-size: 12px;
+  text-align: left;
+}
+.current-weather {
+  color: yellow;
+  font-size: 100px;
+  text-align: center;
+  margin-top: 20px;
+}
+.mytext {
+  font-size: 16px;
+  text-align: center;
+}
+.sunny {
+  color: yellow;
+  font-size: 30px;
+  text-align: center;
+}
+.cloudy {
+  color: grey;
+  font-size: 30px;
+  text-align: center;
+}
+.rainy {
+  color: blue;
+  font-size: 30px;
+  text-align: center;
+}
+.box {
+  margin: 0px 5px 0px 0px;
+}
