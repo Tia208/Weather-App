@@ -42,20 +42,24 @@
             </div>
           </div>
         </div>
-        <h1 id="city">London</h1>
+        <h1 id="city">Basel</h1>
         <h2><div id="dates"></div></h2>
         <h3><div id="time"></div></h3>
-        <div class="current-weather">
-          <i class="fas fa-sun"></i>
+        <div class = "iconStyling">
+          <img class="current-weather" src="http://openweathermap.org/img/wn/10d@2x.png" alt = "Light Rain" id = "weather_icon"></img>
         </div>
+        <div id="weather_description" class="description"></div>
         <div class="row align-items-center pt-2">
-          <div id="current_temperature" class="col-4 current-temp">18°C</div>
+          <div class="col-4">
+            <div class="current-temp" id="current_temperature"></div>
+          </div>
+
           <div class="col-3 current-temp"></div>
 
           <div class="col-5 text-weather">
-            <div id="max_min_temp">Temperature: 20°C / 15°C</div>
-            <div id="current_humidity">Humidity: 20%</div>
-            <div id="windSpeed">Wind: 7km/h</div>
+            <div id="max_min_temp"></div>
+            <div id="current_humidity"></div>
+            <div id="windSpeed"></div>
           </div>
         </div>
         <div class="row pt-5">

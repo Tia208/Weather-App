@@ -28,6 +28,12 @@ h3 {
   text-align: right;
   font-weight: bolder;
 }
+.description {
+  text-align: center;
+  font-size: 17px;
+  font-weight: bolder;
+  margin-bottom: 20px;
+}
 .input-group {
   max-width: 300px;
   background: grey;
@@ -64,10 +70,11 @@ h3 {
   text-align: left;
 }
 .current-weather {
-  color: yellow;
-  font-size: 100px;
+  margin-top: 10px;
+  width: 20%;
+}
+.iconStyling {
   text-align: center;
-  margin-top: 20px;
 }
 .mytext {
   font-size: 16px;

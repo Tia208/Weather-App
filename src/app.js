@@ -45,6 +45,13 @@ let max_min_temp_element = document.querySelector("#max_min_temp");
 let humidityElement = document.querySelector("#current_humidity");
 let windElement = document.querySelector("#windSpeed");
 let city = document.querySelector("#city");
+let weatherDescriptionElement = document.querySelector("#weather_description");
+let weatherIconElement = document.querySelector("#weather_icon");
+
+let baseApiUrl =
+  "https://api.openweathermap.org/data/2.5/weather?units=metric&q=Basel&appid=136704be6c76187eb0ff7a4b79f385ce";
+
+axios.get(baseApiUrl).then(showTemperature);
 
 let apiKey = "136704be6c76187eb0ff7a4b79f385ce";
 
@@ -56,11 +63,17 @@ function showTemperature(response) {
   let min_temp = Math.round(response.data.main.temp_min);
   let humidity = Math.round(response.data.main.humidity);
   let wind_speed = Math.round(response.data.wind.speed);
+  let weather_desc = response.data.weather[0].description;
 
   temperatureElement.innerHTML = `${temperature}°C`;
   max_min_temp_element.innerHTML = `Temperature: ${max_temp}°C / ${min_temp}°C`;
   humidityElement.innerHTML = `Humidity: ${humidity}%`;
   windElement.innerHTML = `Wind: ${wind_speed} km/h`;
+  weatherDescriptionElement.innerHTML = weather_desc;
+  weatherIconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function searchCity() {
