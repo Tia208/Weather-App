@@ -1,12 +1,5 @@
-let now = new Date();
-
 let dates = document.querySelector("#dates");
 let time = document.querySelector("#time");
-
-let date = now.getDate();
-let hours = now.getHours();
-let minutes = now.getMinutes();
-let year = now.getFullYear();
 
 let days = [
   "Sunday",
@@ -17,7 +10,6 @@ let days = [
   "Friday",
   "Saturday",
 ];
-let day = days[now.getDay()];
 
 let months = [
   "January",
@@ -33,10 +25,6 @@ let months = [
   "November",
   "December",
 ];
-let month = months[now.getMonth()];
-
-dates.innerHTML = `${day}, ${date} ${month} ${year}`;
-time.innerHTML = `${hours}:${minutes}`;
 
 let enterCity = document.querySelector("#button-addon2");
 let input_city_field = document.getElementById("input_city");
@@ -57,7 +45,35 @@ let apiKey = "136704be6c76187eb0ff7a4b79f385ce";
 
 let apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 
+function cityDateTime(dt) {
+  let curr_date = new Date(dt * 1000);
+  let date = curr_date.getDate();
+  if (date < 10) {
+    new_date = `0${date}`;
+  } else {
+    new_date = date;
+  }
+  let hours = curr_date.getHours();
+  if (hours < 10) {
+    new_hours = `0${hours}`;
+  } else {
+    new_hours = hours;
+  }
+  let minutes = curr_date.getMinutes();
+  if (minutes < 10) {
+    new_minutes = `0${minutes}`;
+  } else {
+    new_minutes = minutes;
+  }
+  let year = curr_date.getFullYear();
+  let day = days[curr_date.getDay()];
+  let month = months[curr_date.getMonth()];
+  dates.innerHTML = `${day}, ${new_date} ${month} ${year}`;
+  time.innerHTML = `${new_hours}:${new_minutes}`;
+}
+
 function showTemperature(response) {
+  cityDateTime(response.data.dt);
   let temperature = Math.round(response.data.main.temp);
   let max_temp = Math.round(response.data.main.temp_max);
   let min_temp = Math.round(response.data.main.temp_min);
