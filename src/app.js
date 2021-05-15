@@ -26,7 +26,8 @@ let months = [
   "December",
 ];
 
-let enterCity = document.querySelector("#button-addon2");
+let enterCity = document.querySelector("#search_city");
+let currentLocation = document.querySelector("#current_location");
 let input_city_field = document.getElementById("input_city");
 let temperatureElement = document.querySelector("#current_temperature");
 let max_min_temp_element = document.querySelector("#max_min_temp");
@@ -36,14 +37,13 @@ let city = document.querySelector("#city");
 let weatherDescriptionElement = document.querySelector("#weather_description");
 let weatherIconElement = document.querySelector("#weather_icon");
 
-let baseApiUrl =
-  "https://api.openweathermap.org/data/2.5/weather?units=metric&q=Basel&appid=136704be6c76187eb0ff7a4b79f385ce";
-
-axios.get(baseApiUrl).then(showTemperature);
+let baseCity = "Basel";
 
 let apiKey = "136704be6c76187eb0ff7a4b79f385ce";
 
 let apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+axios.get(`${apiUrl}${baseCity}&appid=${apiKey}`).then(showTemperature);
 
 function cityDateTime(dt) {
   let curr_date = new Date(dt * 1000);
@@ -81,6 +81,7 @@ function showTemperature(response) {
   let wind_speed = Math.round(response.data.wind.speed);
   let weather_desc = response.data.weather[0].description;
 
+  city.innerHTML = response.data.name;
   temperatureElement.innerHTML = `${temperature}°C`;
   max_min_temp_element.innerHTML = `Temperature: ${max_temp}°C / ${min_temp}°C`;
   humidityElement.innerHTML = `Humidity: ${humidity}%`;
@@ -92,17 +93,28 @@ function showTemperature(response) {
   );
 }
 
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
+
+function searchLocation(position) {
+  let apiUrl_curr = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl_curr).then(showTemperature);
+}
+
 function searchCity() {
   let input_city = document.getElementById("input_city").value;
-  city.innerHTML = `${input_city}`;
   console.log(`${apiUrl}${input_city}&appid=${apiKey}`);
   axios.get(`${apiUrl}${input_city}&appid=${apiKey}`).then(showTemperature);
 }
 
 enterCity.addEventListener("click", searchCity);
+currentLocation.addEventListener("click", getCurrentLocation);
 input_city_field.addEventListener("keyup", function (event) {
   if (event.keyCode === 13) {
     event.preventDefault();
-    document.getElementById("button-addon2").click();
+    document.getElementById("search_city").click();
   }
 });

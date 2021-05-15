@@ -22,8 +22,8 @@
     <div class="container">
       <div class="border border-0 rounded p-3">
         <div class="row">
-          <div class="col-6"></div>
-          <div class="col-6">
+          <div class="col-5"></div>
+          <div class="col-7">
             <div class="input-group mb-3">
               <input
                 type="search"
@@ -32,17 +32,22 @@
                 aria-describedby="button-addon2"
                 id="input_city"
               />
+               <button
+               class="btn btn-outline-secondary"
+                type="button"
+                id="search_city"
+              >
+                <i class="fas fa-search"></i>
               <button
                 class="btn btn-outline-secondary"
                 type="button"
-                id="button-addon2"
+                id="current_location"
               >
-                <i class="fas fa-search"></i>
-              </button>
+                <i class="fas fa-map-marker-alt"></i>
             </div>
           </div>
         </div>
-        <h1 id="city">Basel</h1>
+        <h1 id="city"></h1>
         <h2>Last updated:</h2>
         <h3><div id="dates"></div></h3>
         <h4><div id="time"></div></h4>
