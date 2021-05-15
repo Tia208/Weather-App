@@ -36,12 +36,30 @@ let windElement = document.querySelector("#windSpeed");
 let city = document.querySelector("#city");
 let weatherDescriptionElement = document.querySelector("#weather_description");
 let weatherIconElement = document.querySelector("#weather_icon");
+let day1Element = document.querySelector("#day1");
+let day2Element = document.querySelector("#day2");
+let day3Element = document.querySelector("#day3");
+let day4Element = document.querySelector("#day4");
+let day5Element = document.querySelector("#day5");
+let day1TemperatureElement = document.querySelector("#day1_temperature");
+let day2TemperatureElement = document.querySelector("#day2_temperature");
+let day3TemperatureElement = document.querySelector("#day3_temperature");
+let day4TemperatureElement = document.querySelector("#day4_temperature");
+let day5TemperatureElement = document.querySelector("#day5_temperature");
+let day1WeatherIconElement = document.querySelector("#day1_weather_icon");
+let day2WeatherIconElement = document.querySelector("#day2_weather_icon");
+let day3WeatherIconElement = document.querySelector("#day3_weather_icon");
+let day4WeatherIconElement = document.querySelector("#day4_weather_icon");
+let day5WeatherIconElement = document.querySelector("#day5_weather_icon");
 
 let baseCity = "Basel";
 
 let apiKey = "136704be6c76187eb0ff7a4b79f385ce";
 
 let apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+let forecastApiUrl =
+  "https://api.openweathermap.org/data/2.5/onecall?units=metric&exclude=hourly,minutely,alerts,current&appid=";
 
 axios.get(`${apiUrl}${baseCity}&appid=${apiKey}`).then(showTemperature);
 
@@ -67,9 +85,19 @@ function cityDateTime(dt) {
   }
   let year = curr_date.getFullYear();
   let day = days[curr_date.getDay()];
+  let day1 = days[(curr_date.getDay() + 1) % 7].substring(0, 3);
+  let day2 = days[(curr_date.getDay() + 2) % 7].substring(0, 3);
+  let day3 = days[(curr_date.getDay() + 3) % 7].substring(0, 3);
+  let day4 = days[(curr_date.getDay() + 4) % 7].substring(0, 3);
+  let day5 = days[(curr_date.getDay() + 5) % 7].substring(0, 3);
   let month = months[curr_date.getMonth()];
   dates.innerHTML = `${day}, ${new_date} ${month} ${year}`;
   time.innerHTML = `${new_hours}:${new_minutes}`;
+  day1Element.innerHTML = day1;
+  day2Element.innerHTML = day2;
+  day3Element.innerHTML = day3;
+  day4Element.innerHTML = day4;
+  day5Element.innerHTML = day5;
 }
 
 function showTemperature(response) {
@@ -91,6 +119,49 @@ function showTemperature(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  axios
+    .get(
+      `${forecastApiUrl}${apiKey}&lat=${response.data.coord.lat}&lon=${response.data.coord.lon}`
+    )
+    .then(showForecast);
+}
+
+function showForecast(response) {
+  day1TemperatureElement.innerHTML = `${Math.round(
+    response.data.daily[1].temp.day
+  )}°C`;
+  day2TemperatureElement.innerHTML = `${Math.round(
+    response.data.daily[2].temp.day
+  )}°C`;
+  day3TemperatureElement.innerHTML = `${Math.round(
+    response.data.daily[3].temp.day
+  )}°C`;
+  day4TemperatureElement.innerHTML = `${Math.round(
+    response.data.daily[4].temp.day
+  )}°C`;
+  day5TemperatureElement.innerHTML = `${Math.round(
+    response.data.daily[5].temp.day
+  )}°C`;
+  day1WeatherIconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.daily[1].weather[0].icon}@2x.png`
+  );
+  day2WeatherIconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.daily[2].weather[0].icon}@2x.png`
+  );
+  day3WeatherIconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.daily[3].weather[0].icon}@2x.png`
+  );
+  day4WeatherIconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.daily[4].weather[0].icon}@2x.png`
+  );
+  day5WeatherIconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.daily[5].weather[0].icon}@2x.png`
+  );
 }
 
 function getCurrentLocation(event) {
@@ -106,7 +177,6 @@ function searchLocation(position) {
 
 function searchCity() {
   let input_city = document.getElementById("input_city").value;
-  console.log(`${apiUrl}${input_city}&appid=${apiKey}`);
   axios.get(`${apiUrl}${input_city}&appid=${apiKey}`).then(showTemperature);
 }
 
