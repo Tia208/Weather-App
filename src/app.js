@@ -51,6 +51,7 @@ let day2WeatherIconElement = document.querySelector("#day2_weather_icon");
 let day3WeatherIconElement = document.querySelector("#day3_weather_icon");
 let day4WeatherIconElement = document.querySelector("#day4_weather_icon");
 let day5WeatherIconElement = document.querySelector("#day5_weather_icon");
+let containerElement = document.querySelector("#container_color");
 
 let baseCity = "Basel";
 

@@ -4,9 +4,19 @@ body {
   margin: 20px auto;
 }
 .container {
-  background-image: url(https://images.unsplash.com/photo-1588382361282-b48215d66c03?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80);
+  background-image: url(https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=655&q=80);
+  background: radial-gradient(
+    592px at 48.2% 50%,
+    rgba(199, 202, 196, 0.6) 0%,
+    rgb(104, 195, 211) 74.6%
+  );
   border: 2px solid #000000;
 }
+.container1 {
+  border: 2px solid #000000;
+  background: blue;
+}
+
 h1 {
   color: #000000;
   margin-bottom: 50px;
@@ -49,24 +59,27 @@ h4 {
   border: 2px solid;
 }
 .future1 {
-  background: #c8e5f7;
+  background: #dbdfdc;
   padding: 10px 10px;
 }
 .future2 {
-  background: #c8e5f7;
+  background: #dbdfdc;
   padding: 10px 10px;
 }
 .future3 {
-  background: #c8e5f7;
+  background: #dbdfdc;
   padding: 10px 10px;
 }
 .future4 {
-  background: #c8e5f7;
+  background: #dbdfdc;
   padding: 10px 10px;
 }
 .future5 {
-  background: #c8e5f7;
+  background: #dbdfdc;
   padding: 10px 10px;
+}
+.future-test {
+  background: blue;
 }
 .text-weather {
   font-size: 12px;
@@ -109,4 +122,7 @@ h4 {
   color: grey;
   font-size: 12px;
   text-decoration: none;
+}
+.forecastBoxes {
+  margin: 0px 0px 0px 5px;
 }
