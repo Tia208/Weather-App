@@ -8,7 +8,7 @@ body {
   background: radial-gradient(
     592px at 48.2% 50%,
     rgba(199, 202, 196, 0.6) 0%,
-    rgb(104, 195, 211) 74.6%
+    rgb(41, 138, 133) 74.6%
   );
   border: 2px solid #000000;
 }
@@ -20,7 +20,7 @@ h1 {
   font-weight: bold;
   font-size: 40px;
 }
-h2,
+
 h3,
 h4 {
   text-align: center;
@@ -30,6 +30,13 @@ h4 {
   line-height: 1pt;
   font-weight: bolder;
 }
+h2 {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  line-height: 1pt;
+}
 .current-temp {
   font-size: 50px;
   text-align: right;
@@ -38,7 +45,6 @@ h4 {
 .description {
   text-align: center;
   font-size: 17px;
-  font-weight: bolder;
   margin-bottom: 20px;
 }
 .input-group {
