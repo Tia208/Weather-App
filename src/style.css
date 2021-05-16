@@ -15,14 +15,15 @@ body {
 
 h1 {
   color: #000000;
-  margin-bottom: 50px;
   padding-top: 20px;
   font-weight: bold;
   font-size: 40px;
+  margin: 0px 0px 50px 5px;
 }
 
 h3,
 h4 {
+  color: #000000;
   text-align: center;
   margin-top: 25px;
   margin-bottom: 10px;
@@ -31,21 +32,30 @@ h4 {
   font-weight: bolder;
 }
 h2 {
+  color: #000000;
   text-align: center;
   margin-top: 25px;
   margin-bottom: 10px;
   font-size: 18px;
   line-height: 1pt;
 }
-.current-temp {
-  font-size: 50px;
-  text-align: right;
-  font-weight: bolder;
-}
-.description {
+p {
+  color: #000000;
   text-align: center;
   font-size: 17px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+.current-temp {
+  color: #000000;
+  font-size: 40px;
+  text-align: right;
+  font-weight: bold;
+}
+.description {
+  color: #000000;
+  text-align: center;
+  font-size: 17px;
+  margin-bottom: 30px;
 }
 .input-group {
   max-width: 300px;
@@ -82,6 +92,7 @@ h2 {
 }
 
 .text-weather {
+  color: #000000;
   font-size: 12px;
   text-align: left;
 }
@@ -97,24 +108,11 @@ h2 {
   text-align: center;
 }
 .mytext {
+  color: #000000;
   font-size: 16px;
   text-align: center;
 }
-.sunny {
-  color: yellow;
-  font-size: 30px;
-  text-align: center;
-}
-.cloudy {
-  color: grey;
-  font-size: 30px;
-  text-align: center;
-}
-.rainy {
-  color: blue;
-  font-size: 30px;
-  text-align: center;
-}
+
 .box {
   margin: 0px 5px 0px 0px;
 }
